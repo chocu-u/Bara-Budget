@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bara-Budget | The Savage Financial Coach</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="chat-app">
+        <!-- Header / Settings Area -->
+        <header class="chat-header">
+            <div class="header-content">
+                <div class="profile-pic">
+                    <img src="https://api.dicebear.com/7.x/bottts/svg?seed=Bara" alt="Bara-Budget">
+                </div>
+                <div class="contact-info">
+                    <h1>Bara-Budget</h1>
+                    <p class="status">Savage Financial Coach</p>
+                </div>
+            </div>
+            <div class="header-settings">
+                <div class="setting-item">
+                    <label for="weekly-budget">Budget (PHP)</label>
+                    <input type="number" id="weekly-budget" value="5000" placeholder="e.g. 5000">
+                </div>
+                <div class="setting-item">
+                    <label for="roast-mode">Mode</label>
+                    <select id="roast-mode">
+                        <option value="savage">Savage</option>
+                        <option value="enabler">Enabler</option>
+                        <option value="anxious">Anxious Parent</option>
+                    </select>
+                </div>
+            </div>
+        </header>
+
+        <!-- Chat History Area -->
+        <div class="chat-messages" id="chat-messages">
+            <div class="message-wrapper received">
+                <div class="message-bubble text-only">
+                    Hey. I'm Bara-Budget. Tell me what you want to buy and how much it costs. Prepare to be judged.
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="chat-input-area">
+            <div class="input-container">
+                <input type="text" id="item-name" placeholder="Item (e.g. Milktea)">
+                <div class="divider"></div>
+                <input type="number" id="item-cost" placeholder="Cost (PHP)">
+                <button id="send-btn" class="send-btn">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="19" x2="12" y2="5"></line>
+                        <polyline points="5 12 12 5 19 12"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="gemini.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
