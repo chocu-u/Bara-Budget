@@ -1,15 +1,14 @@
 class GeminiAPI {
     constructor() {
         this.secretSeed = "[INSERT SECRET SEED HERE]";
-        this.apiKey = "AIzaSyDVYtGbBWr4E5iwUeyNLj53oY3BC2TrSF4";
     }
 
-    async getRoast(budget, itemName, itemCost, mode) {
-        if (!this.apiKey) {
+    async getRoast(apiKey, budget, itemName, itemCost, mode) {
+        if (!apiKey) {
             throw new Error("API Key is required.");
         }
 
-        const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${this.apiKey}`;
+        const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
         
         let systemInstruction = "";
         

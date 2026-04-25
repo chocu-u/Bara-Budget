@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatMessages = document.getElementById('chat-messages');
     
     // Inputs
+    const apiKeyInput = document.getElementById('api-key');
     const itemNameInput = document.getElementById('item-name');
     const itemCostInput = document.getElementById('item-cost');
     const budgetInput = document.getElementById('weekly-budget');
@@ -141,10 +142,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function handleSend() {
+        const apiKey = apiKeyInput.value.trim();
         const itemName = itemNameInput.value.trim();
         const itemCost = parseFloat(itemCostInput.value);
         const budget = parseFloat(budgetInput.value);
         const mode = modeSelect.value;
+
+        if (!apiKey) {
+            alert("Please enter your Gemini API Key in the header.");
+            return;
+        }
 
         if (!itemName || isNaN(itemCost) || itemCost <= 0) {
             alert("Please enter a valid item name and cost.");
@@ -168,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             // 4. Fetch roast
-            const roastMessage = await window.GeminiAPI.getRoast(budget, itemName, itemCost, mode);
+            const roastMessage = await window.GeminiAPI.getRoast(apiKey, budget, itemName, itemCost, mode);
             
             // 5. Remove typing
             removeTypingIndicator(typingId);
